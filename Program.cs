@@ -6,6 +6,7 @@
 //d- Ordene a coleção de frutas na ordem ascendente
 //e- Exiba no console a coleção de nomes de frutas na ordem inversa
 using System.Linq.Expressions;
+using System.Text.Json.Serialization;
 
 string[] basketFruits = ["Maça", "Banana", "Laranja", "Uva", "Manga", "Pêra","Abacate", "Mamão", "Pêssego", "Amora"];
 
@@ -60,12 +61,13 @@ int[] intArray = new int[arrayLength];
 int userInput = 0;
 Random randNum = new Random();
 
-for(int i = 0; i < arrayLength; i++)
+for (int i = 0; i < arrayLength; i++)
 {
     intArray[i] = randNum.Next(1, 20);
 }
 
-while(true){
+while (true)
+{
 
     Console.WriteLine("Try guess an integer number inside an array : (1-20)");
     userInput = Convert.ToInt32(Console.ReadLine());
@@ -79,3 +81,32 @@ while(true){
         Console.WriteLine("\nTry again\n");
 };
 ShowArrayElemenstInt(intArray);
+
+/*3 - Escreva um programa em C# que solicite ao usuário que informe o valor das notas, do tipo float , para 10
+alunos divididos em 2 grupos de 5 alunos cada. Armazene as informações em um array bidimensional e a
+seguir exiba no console a média aritmética de cada grupo de alunos (grupo1 e grupo2).
+*/
+Console.WriteLine("\n\n\n");
+double[,] grades = new double[2,5];
+double sumGrades = 0;
+
+for (int i = 0; i< grades.GetLength(0); i++)
+{
+    for(int j = 0; j < grades.GetLength(1); j++)
+    {
+        Console.WriteLine($"Insert student [{i},{j}] grade: ");
+        grades[i,j] = Convert.ToDouble(Console.ReadLine());
+    }
+    Console.WriteLine();
+}
+
+for (int i = 0; i < grades.GetLength(0); i++)
+{
+    for (int j = 0; j < grades.GetLength(1); j++)
+    {
+        sumGrades += grades[i, j];
+        Console.Write($"Grades[{i},{j}]: {grades[i, j]} ");
+    }
+    Console.WriteLine($"Media group {i+1}: {sumGrades/grades.GetLength(1)}");
+    sumGrades = 0;
+}
