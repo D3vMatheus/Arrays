@@ -7,6 +7,7 @@
 //e- Exiba no console a coleção de nomes de frutas na ordem inversa
 using System.Linq.Expressions;
 using System.Text.Json.Serialization;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 string[] basketFruits = ["Maça", "Banana", "Laranja", "Uva", "Manga", "Pêra","Abacate", "Mamão", "Pêssego", "Amora"];
 
@@ -110,3 +111,6 @@ for (int i = 0; i < grades.GetLength(0); i++)
     Console.WriteLine($"Media group {i+1}: {sumGrades/grades.GetLength(1)}");
     sumGrades = 0;
 }
+
+Console.WriteLine("\n\n\n");
+
